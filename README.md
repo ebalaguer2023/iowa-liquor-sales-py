@@ -1,2 +1,9 @@
 # iowa-liquor-sales-py
-Data analysis of the Iowa Liquor Sales from a python approach
+Data analysis of the Iowa Liquor Sales from a python approach. The data worked on this project it's the Iowa Liquor Sales dataset available at: https://data.iowa.gov/Sales-Distribution/Iowa-Liquor-Sales/m3tr-qhgy/about_data
+
+This approach includes the previous ETL tasks; a summary statistics of the dataset and an overview of the data distribution in order to understand how the data are spread so we can later choose the appropiate test (parametric or non parametric depending on the result of this analysis).
+
+We also have distinct codes that returns:
+a) An analysis of the sales over time, with a lineplot.
+b) Summary of sales per category by year, proving different modes of display (wide and long formats)
+c) An interface to obtain the sales of a certain vendor in an specific store. This interface ask the user to choose the vendor, the city and the store. The results includes a series of plots.
