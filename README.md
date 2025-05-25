@@ -1,5 +1,5 @@
 # iowa-liquor-sales-py
-Data analysis of the Iowa Liquor Sales from a python approach. The data worked on this project it's the Iowa Liquor Sales dataset available at: https://data.iowa.gov/Sales-Distribution/Iowa-Liquor-Sales/m3tr-qhgy/about_data
+Data analysis of the Iowa Liquor Sales from a python approach. The data worked on this project it's the [Iowa Liquor Sales dataset] (https://data.iowa.gov/Sales-Distribution/Iowa-Liquor-Sales/m3tr-qhgy/about_data)
 
 This approach includes the previous ETL tasks; a summary statistics of the dataset and an overview of the data distribution in order to understand how the data are spread so we can later choose the appropiate test (parametric or non parametric depending on the result of this analysis). This summary and Exploratory Data Analysis it's on ils_describe.py
 
