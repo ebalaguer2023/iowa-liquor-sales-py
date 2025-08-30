@@ -123,32 +123,6 @@ unstack = ilspivot.unstack()
 with pd.ExcelWriter('C:/Users/emili/Downloads/tablasils2024.xlsx', engine='openpyxl', mode = 'a') as writer:
     unstack.to_excel(writer, sheet_name='Sales_Resume_Unstack')
 
-YEAR = 2015
-df = df[df['YEAR'] == YEAR]
-
-print(YEAR)
-print(df.groupby('cat')['Bottles Sold'].value_counts())
-print(df.groupby('cat')['Bottles Sold'].sum())
-
-
-dfselect = df.iloc[166]
-print(dfselect)
-
-
-dfselect = df.iloc[537]
-print(dfselect)
-
-
-dfselect = df.iloc[843]
-print(dfselect)
-
-print(df['DATE'].count())
-
-
-
-
-
-
 
 
 
