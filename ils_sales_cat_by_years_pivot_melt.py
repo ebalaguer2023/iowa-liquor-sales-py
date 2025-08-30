@@ -13,9 +13,9 @@ import re
 from docx import Document
 import openpyxl
 
-
+##Establezco arbitratiamente un valor de código de Store, podría ser un dato solicitado al usuario vía input()
 STORE= 2583
-##, usecols=["DATE", "Category Name", "Bottles Sold", "Volume Sold (Liters)"]
+
 df = pd.read_csv('C:/Users/emili/Downloads/ILS20222024.csv', quoting=3,\
                  dtype = {'Invoice Item Description': str , 'DATE': str, 'Store Name': str , 'LATITUDE': str,\
                  'LONGITUDE' : str, 'City' : str, 'Category Group': str, 'Category Name': str,\
@@ -57,10 +57,6 @@ choices = list(patterns.keys())
 df['cat'] = np.select(conditions, choices, default='OTHERS')
 
 
-##cat = df.groupby('cat')['Bottles Sold'].sum()  ##el resultado es una serie
-##print(cat.columns)  ##Por ser una serie esto devuelve el error 'Series' object has no attribute 'columns'
-
-
 df['Bottles Sold'] = pd.to_numeric(df['Bottles Sold'], errors='coerce')
 ##df = df.dropna(subset=['Bottles Sold'])
 print('fILAS DONDE BOTTLES SOLD ES NA \n',df[df['Bottles Sold'].isna()])
@@ -70,13 +66,9 @@ dfna.to_csv('C:/Users/emili/Downloads/dfna.csv')
 
 
 cat = df.groupby('cat')['Bottles Sold'].sum().reset_index()
-print(cat.columns)  # Ahora sí funcionará
+print(cat.columns)  
 
 
-##NOTA 1: si no hago esta asignación de índices que hago en la linea siguiente no funcionará 
-##la línea que viene a continuación que agrega una columna con el cálculo de la media
-##sin el nuevo índice agrega la columna pero la llena de NaN
-##NOTA 2: si esa asignación de index no la asigno a la variable del dataframe queda en la nada, después no me toma el sort_values por ejemplo
 cat = cat.set_index('cat')   
 
 cat['Bottles Sold - MEAN'] = df.groupby('cat')['Bottles Sold'].mean()
@@ -91,8 +83,6 @@ with pd.ExcelWriter('C:/Users/emili/Downloads/tablasils2024.xlsx', engine='openp
     ilspivot.to_excel(writer, sheet_name='Sales_Resume')
 
 
-
-# Resetear el índice y convertir MultiIndex en columnas normales
 ilspivot_reset = ilspivot.copy().reset_index()
 ilspivot_reset.columns = ['YEAR'] + [f"{agg}_{cat}" for agg, cat in ilspivot_reset.columns[1:]]
 
@@ -152,6 +142,7 @@ dfselect = df.iloc[843]
 print(dfselect)
 
 print(df['DATE'].count())
+
 
 
 
