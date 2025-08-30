@@ -14,6 +14,7 @@ from docx import Document
 import openpyxl
 
 ##Establezco arbitratiamente un valor de código de Store, podría ser un dato solicitado al usuario vía input()
+##Otro dato que se fija arbitrariamente es el año, se podría requerir también al usuario
 STORE= 2583
 
 df = pd.read_csv('C:/Users/emili/Downloads/ILS20222024.csv', quoting=3,\
@@ -142,6 +143,7 @@ dfselect = df.iloc[843]
 print(dfselect)
 
 print(df['DATE'].count())
+
 
 
 
